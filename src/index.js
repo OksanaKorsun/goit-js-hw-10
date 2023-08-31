@@ -18,6 +18,7 @@ console.log(refs.picture);
 
 document.addEventListener('DOMContentLoaded', renderPage);
 function renderPage() {
+  refs.loader.style.display = 'block';
   fetchBreeds()
     .then(breeds => createSelect(breeds))
     .catch(err => {
@@ -26,7 +27,9 @@ function renderPage() {
         'Oops! Something went wrong! Try reloading the page!'
       );
     })
-  .finally(() => refs.loader.visibility = 'hidden');
+    .finally(() => {
+      refs.loader.style.display = 'none';
+    });
 }
 
 function createSelect(breeds) {
@@ -42,6 +45,8 @@ function createSelect(breeds) {
 refs.select.addEventListener('change', handlerChange);
 
 function handlerChange(evt) {
+  refs.loader.style.display = 'block';
+  // refs.loader.classList.remove('hide')
   const breedId = evt.target.value;
   console.log('breedId', breedId);
   refs.picture.innerHTML = '';
@@ -54,7 +59,10 @@ function handlerChange(evt) {
         'Oops! Something went wrong! Try reloading the page!'
       );
     })
-  .finally(() => refs.loader.visibility = 'hidden');
+    .finally(() => {
+      // refs.loader.classList.add('hide');
+      refs.loader.style.display = 'none';
+    });
 }
 
 function createCatPage(arr) {

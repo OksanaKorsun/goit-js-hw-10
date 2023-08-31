@@ -15,16 +15,10 @@ function fetchBreeds() {
 
 function fetchCatByBreed(breedId) {
   const SEARCH = '/images/search';
-//   console.log(fetch(`${BASE_URL}${SEARCH}?breed_ids=${breedId}`));
-//   return fetch(`${BASE_URL}${SEARCH}?breed_ids=${breedId}`).then(resp => {
-//     if (!resp.ok) {
-//       throw new Error(resp.statusText);
-//     }
-//     return resp.json();
-//   });
-    return axios.get(`${BASE_URL}${SEARCH}?breed_ids=${breedId}`)
-        .then(resp => resp.data)
-        .catch(err => err(err));
+  return axios
+    .get(`${BASE_URL}${SEARCH}?breed_ids=${breedId}`)
+    .then(resp => resp.data)
+    .catch(err => err(err));
 }
 
 export { fetchBreeds, fetchCatByBreed };

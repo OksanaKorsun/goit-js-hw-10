@@ -3,7 +3,7 @@ body {
   color: aliceblue;
 }
 .breed-select {
-  width: 500px;
+  width: 520px;
   margin: auto;
   font-size: 18px;
 }
@@ -16,8 +16,7 @@ body {
   top: 40%;
   left: 45%;
   transform: translate(-50%, -50%);
-  border-top: 7px solid #FFF;
-  /* border-top: 8px solid #1172c2; */
+  border-top: 7px solid #fff;
   border-right: 7px solid transparent;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
@@ -32,8 +31,7 @@ body {
   width: 108px;
   height: 108px;
   border-radius: 50%;
-  border-bottom: 7px solid #FF3D00;
-  /* border-bottom: 8px solid #ff00b3; */
+  border-bottom: 7px solid #ff3d00;
   border-left: 7px solid transparent;
 }
 
@@ -47,19 +45,20 @@ body {
   }
 }
 .cat-info {
-    display: flex;
-    gap: 50px;
-
+  display: flex;
+  gap: 50px;
 }
 .picture {
-    margin-top: 50px;
-    margin-left: 50px;
+  margin-top: 50px;
+  margin-left: 50px;
 }
 .desc {
-    display: flex;
-    flex-direction: column;
-    /* justify-content: start; */
-    margin-top: 50px;
-    margin-right: 50px;
-    /* align-items: center; */
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  margin-right: 50px;
 }
+
+/* .hide {
+    visibility: hidden;
+} */
