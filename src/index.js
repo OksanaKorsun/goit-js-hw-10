@@ -13,8 +13,6 @@ const refs = {
   picture: document.querySelector('.picture'),
   description: document.querySelector('.desc'),
 };
-console.log(refs.description);
-console.log(refs.picture);
 
 document.addEventListener('DOMContentLoaded', renderPage);
 function renderPage() {
@@ -48,7 +46,6 @@ function handlerChange(evt) {
   refs.loader.style.display = 'block';
   // refs.loader.classList.remove('hide')
   const breedId = evt.target.value;
-  console.log('breedId', breedId);
   refs.picture.innerHTML = '';
   refs.description.innerHTML = '';
   fetchCatByBreed(breedId)
