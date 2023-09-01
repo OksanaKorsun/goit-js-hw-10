@@ -7,6 +7,9 @@ body {
   margin: auto;
   font-size: 18px;
 }
+.breed-select.unvisible {
+  visibility: hidden;
+}
 .loader {
   width: 108px;
   height: 108px;
@@ -55,7 +58,8 @@ body {
 .picture {
   margin-top: 50px;
   margin-left: 50px;
-}
+  /* object-fit: contain; */
+} 
 .desc {
   display: flex;
   flex-direction: column;
@@ -65,4 +69,4 @@ body {
 
 /* .hide {
     visibility: hidden;
-} */
+}

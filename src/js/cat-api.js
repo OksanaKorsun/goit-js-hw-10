@@ -4,7 +4,7 @@ axios.defaults.headers.common['x-api-key'] =
 
 const BASE_URL = 'https://api.thecatapi.com/v1';
 const END_POINT = '/breeds';
-function fetchBreeds() {
+export function fetchBreeds() {
   return fetch(`${BASE_URL}${END_POINT}`).then(resp => {
     if (!resp.ok) {
       throw new Error(resp.statusText);
@@ -13,12 +13,10 @@ function fetchBreeds() {
   });
 }
 
-function fetchCatByBreed(breedId) {
+export function fetchCatByBreed(breedId) {
   const SEARCH = '/images/search';
-  return axios
-    .get(`${BASE_URL}${SEARCH}?breed_ids=${breedId}`)
-    .then(resp => resp.data)
-    .catch(err => err(err));
+  return axios.get(`${BASE_URL}${SEARCH}?breed_ids=${breedId}`)
+    .then(resp => resp.data);
 }
 
-export { fetchBreeds, fetchCatByBreed };
+// export { fetchBreeds, fetchCatByBreed };

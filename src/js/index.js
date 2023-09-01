@@ -5,7 +5,7 @@ import Notiflix from 'notiflix';
 import { fetchBreeds, fetchCatByBreed } from './cat-api';
 axios.defaults.headers.common['x-api-key'] =
   'live_qzGt6DwSbX7USuLtfcHK2q9rBaX7QSV3O3DkXdDkGWwUaezd4VgnEzANqWvYbM6U';
-// console.log(select.setData(createSelect(data)));
+
 const refs = {
   select: document.querySelector('.breed-select'),
   catInfo: document.querySelector('.cat-info'),
@@ -16,20 +16,25 @@ const refs = {
 
 document.addEventListener('DOMContentLoaded', renderPage);
 function renderPage() {
-  // refs.loader.style.display = 'block';
-  refs.loader.classList.remove('unvisible');
+  // refs.loader.classList.remove('unvisible');
+  // refs.select.classList.add('unvisible');
   fetchBreeds()
-    .then(breeds => createSelect(breeds))
+    .then(breeds => {
+      createSelect(breeds);
+      refs.loader.classList.add('unvisible');
+      refs.select.classList.remove('unvisible');
+    })
     .catch(err => {
       console.log(err);
       Notiflix.Notify.failure(
         'Oops! Something went wrong! Try reloading the page!'
       );
-    })
-    .finally(() => {
-      // refs.loader.style.display = 'none';
       refs.loader.classList.add('unvisible');
-    });
+    })
+    // .finally(() => {
+    //   refs.loader.classList.add('unvisible');
+    //   refs.select.classList.remove('unvisible');
+    // });
 }
 
 function createSelect(breeds) {
@@ -65,7 +70,7 @@ function handlerChange(evt) {
 }
 
 function createCatPage(arr) {
-  const picture = `<img class="cat-picture" src="${arr[0].url}" alt="${arr[0].breeds[0].id}" width="550">`;
+  const picture = `<img class="cat-picture" src="${arr[0].url}" alt="${arr[0].breeds[0].id}" width="600" height="400">`;
   const descript = `<h2 class="cat-title">${arr[0].breeds[0].name}</h2>
   <p class="cat-descript">${arr[0].breeds[0].description}</p>
   <p class="cat-temp"><b>Temperament: </b>${arr[0].breeds[0].temperament}</p>`;
