@@ -44,6 +44,10 @@ body {
     transform: rotate(360deg);
   }
 }
+ .loader.unvisible {
+   /* transform: translatey(0); */
+   visibility: hidden;
+ }
 .cat-info {
   display: flex;
   gap: 70px;

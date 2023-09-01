@@ -16,7 +16,8 @@ const refs = {
 
 document.addEventListener('DOMContentLoaded', renderPage);
 function renderPage() {
-  refs.loader.style.display = 'block';
+  // refs.loader.style.display = 'block';
+  refs.loader.classList.remove('unvisible');
   fetchBreeds()
     .then(breeds => createSelect(breeds))
     .catch(err => {
@@ -26,7 +27,8 @@ function renderPage() {
       );
     })
     .finally(() => {
-      refs.loader.style.display = 'none';
+      // refs.loader.style.display = 'none';
+      refs.loader.classList.add('unvisible');
     });
 }
 
@@ -43,8 +45,8 @@ function createSelect(breeds) {
 refs.select.addEventListener('change', handlerChange);
 
 function handlerChange(evt) {
-  refs.loader.style.display = 'block';
-  // refs.loader.classList.remove('hide')
+  // refs.loader.style.display = 'block';
+  refs.loader.classList.remove('unvisible');
   const breedId = evt.target.value;
   refs.picture.innerHTML = '';
   refs.description.innerHTML = '';
@@ -57,8 +59,8 @@ function handlerChange(evt) {
       );
     })
     .finally(() => {
-      // refs.loader.classList.add('hide');
-      refs.loader.style.display = 'none';
+      refs.loader.classList.add('unvisible');
+      // refs.loader.style.display = 'none';
     });
 }
 
