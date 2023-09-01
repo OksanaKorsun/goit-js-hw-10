@@ -19,4 +19,4 @@ export function fetchCatByBreed(breedId) {
     .then(resp => resp.data);
 }
 
-// export { fetchBreeds, fetchCatByBreed };
+

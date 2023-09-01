@@ -15,9 +15,8 @@ const refs = {
 };
 
 document.addEventListener('DOMContentLoaded', renderPage);
+
 function renderPage() {
-  // refs.loader.classList.remove('unvisible');
-  // refs.select.classList.add('unvisible');
   fetchBreeds()
     .then(breeds => {
       createSelect(breeds);
@@ -25,16 +24,12 @@ function renderPage() {
       refs.select.classList.remove('unvisible');
     })
     .catch(err => {
+      refs.loader.classList.add('unvisible');
       console.log(err);
       Notiflix.Notify.failure(
         'Oops! Something went wrong! Try reloading the page!'
       );
-      refs.loader.classList.add('unvisible');
     })
-    // .finally(() => {
-    //   refs.loader.classList.add('unvisible');
-    //   refs.select.classList.remove('unvisible');
-    // });
 }
 
 function createSelect(breeds) {
