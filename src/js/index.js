@@ -19,7 +19,10 @@ document.addEventListener('DOMContentLoaded', renderPage);
 function renderPage() {
   fetchBreeds()
     .then(breeds => {
-      createSelect(breeds);
+      refs.select.insertAdjacentHTML('beforeend', createSelect(breeds));
+      new SlimSelect({
+        select: '#selectElement',
+      });
       refs.loader.classList.add('unvisible');
       refs.select.classList.remove('unvisible');
     })
@@ -29,17 +32,13 @@ function renderPage() {
       Notiflix.Notify.failure(
         'Oops! Something went wrong! Try reloading the page!'
       );
-    })
+    });
 }
 
 function createSelect(breeds) {
-  const markup = breeds
+  return breeds
     .map(({ id, name }) => `<option value="${id}">${name}</option>`)
     .join('');
-  refs.select.insertAdjacentHTML('beforeend', markup);
-  new SlimSelect({
-    select: '#selectElement',
-  });
 }
 
 refs.select.addEventListener('change', handlerChange);
